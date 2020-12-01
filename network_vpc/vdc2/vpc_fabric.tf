@@ -59,7 +59,6 @@ resource "aws_main_route_table_association" "vdc2_vpc_route_association_b" {
   route_table_id = aws_route_table.vdc2_main_rt.id
 }
 
-
 resource "aws_network_acl" "vdc2_vpc_nacl" {
   vpc_id = aws_vpc.vdc2_main_vpc.id
 }
