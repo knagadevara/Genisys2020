@@ -24,3 +24,7 @@ variable "AWSRGN" {
 #         "vpcDefaultSubnet"    = "0.0.0.0/0"
 #     }
 #  }
+## I exported the variable to the shell runtime
+## TF_VARS_AWSKEY="<key>"
+## TF_VARS_AWSSEC="<secret>"
+## TF_VARS_AWSRGN="<region>"
