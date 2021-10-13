@@ -1,2 +1,2 @@
-# Genisys2020
+# Genisys
 Terraform Layout for Genisys2020
