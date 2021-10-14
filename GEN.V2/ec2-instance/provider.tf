@@ -7,7 +7,7 @@ terraform {
   }
 }
 
-
+## Ideal to use direct values than variables inside provider.
 provider "aws" {
     profile="default"
     region=var.AZ_US_EST1

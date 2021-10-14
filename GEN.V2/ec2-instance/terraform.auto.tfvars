@@ -1,0 +1,13 @@
+AMI_ID = "ami-0184675ff8c65c0bc"
+AZ_US_EST1 = "us-east-1"
+AZ_US_EST2 = "us-east-2"
+WEB_APP_SUBNETS = [ "10.15.175.0/24" , "10.15.176.0/24" , "10.15.177.0/24" ]
+Xapp_SYS_ADMIN = [ "batman" , "superman" , "wolferine" , "sandman" ]
+DEV_Xapp_SET = 2
+STG_Xapp_SET = 4
+TST_Xapp_SET = 4
+PRD_Xapp_SET = 10
+DEV_Xapp_SHAPE = "t3.micro"
+STG_Xapp_SHAPE = "t3.micro"
+TST_Xapp_SHAPE = "m5.large"
+PRD_Xapp_SHAPE = "m5.xlarge"
