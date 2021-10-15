@@ -24,9 +24,6 @@ variable "AZ_US_EST1" {
 variable "AZ_US_EST2" {
   type = string
 }
-variable "WEB_APP_SUBNETS" {
-  type = list(string)
-}
 
 variable "Xapp_SYS_ADMIN" {
   type = list(string)
@@ -81,6 +78,17 @@ variable "IAM_ALtUsrPath" {
   type = string
 }
 
-variable "WEB_PORTS_PUB" {
-  type = list(number)
+# variable "WEB_PORTS_PUB" {
+#   type = list(number)
+# }
+# variable "WEB_APP_SUBNETS" {
+#   type = list(string)
+# }
+variable "WEB_PORTS_PUBLIC_MAP" {
+  type = map(object({
+    protocol    = string,
+    port        = number,
+    source      = list(string),
+    description = string
+  }))
 }

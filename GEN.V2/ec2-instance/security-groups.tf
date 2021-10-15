@@ -2,13 +2,14 @@ resource "aws_security_group" "web-httpd-rule" {
   name = "web-httpd-rule"
 
   dynamic "ingress" {
-    for_each = var.WEB_PORTS_PUB
-    iterator = port
+    for_each = var.WEB_PORTS_PUBLIC_MAP
+    iterator = sgr
     content {
-      from_port   = port.value
-      to_port     = port.value
-      protocol    = "tcp"
-      cidr_blocks = var.WEB_APP_SUBNETS
+      from_port   = sgr.value.port
+      to_port     = sgr.value.port
+      protocol    = sgr.value.protocol
+      cidr_blocks = sgr.value.source
+      description = sgr.value.description
     }
   }
 }
