@@ -14,15 +14,15 @@ variable "AWS_VIRT_TYP" {
 variable "AMI_ID" {
   type = string
   validation {
-    condition = length(var.AMI_ID) > 4 && substr(var.AMI_ID,0,4)=="ami-"
+    condition     = length(var.AMI_ID) > 4 && substr(var.AMI_ID, 0, 4) == "ami-"
     error_message = "Amazon AMI id should start with ami-."
   }
 }
 variable "AZ_US_EST1" {
-  type    = string
+  type = string
 }
 variable "AZ_US_EST2" {
-  type    = string
+  type = string
 }
 variable "WEB_APP_SUBNETS" {
   type = list(string)
@@ -35,8 +35,8 @@ variable "Xapp_SYS_ADMIN" {
 variable "Xapp_ENVIRONMENT_TYPE" {
   type = string
   validation {
-    condition=( length(var.Xapp_ENVIRONMENT_TYPE) == 3 && ( substr(var.Xapp_ENVIRONMENT_TYPE,0,3)=="PRD" || substr(var.Xapp_ENVIRONMENT_TYPE,0,3)=="DEV" 
-    || substr(var.Xapp_ENVIRONMENT_TYPE,0,3)=="TST" || substr(var.Xapp_ENVIRONMENT_TYPE,0,3)=="STG") )
+    condition = (length(var.Xapp_ENVIRONMENT_TYPE) == 3 && (substr(var.Xapp_ENVIRONMENT_TYPE, 0, 3) == "PRD" || substr(var.Xapp_ENVIRONMENT_TYPE, 0, 3) == "DEV"
+    || substr(var.Xapp_ENVIRONMENT_TYPE, 0, 3) == "TST" || substr(var.Xapp_ENVIRONMENT_TYPE, 0, 3) == "STG"))
     error_message = "Provided value is not part of the acceptable values, please check the deployment guide."
   }
 }
