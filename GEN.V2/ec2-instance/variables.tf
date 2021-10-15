@@ -7,6 +7,10 @@
 #$ export TF_VAR_<variable_name> <variable_value>
 ####
 
+variable "AWS_VIRT_TYP" {
+  type = string
+}
+
 variable "AMI_ID" {
   type = string
   validation {
