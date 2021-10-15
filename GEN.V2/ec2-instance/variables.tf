@@ -68,3 +68,14 @@ variable "STG_Xapp_SHAPE" {
 variable "PRD_Xapp_SHAPE" {
   type = string
 }
+
+variable "IAM_UserFilePath" {
+  type = string
+}
+
+variable "IAM_ALtUsrPath" {
+  type = string
+}
+# variable "UserMap" {
+#   type = map(object({ users = list(string) }))
+#   }
