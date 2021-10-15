@@ -3,6 +3,7 @@ AMI_ID           = "ami-0184675ff8c65c0bc"
 AZ_US_EST1       = "us-east-1"
 AZ_US_EST2       = "us-east-2"
 WEB_APP_SUBNETS  = ["10.15.175.0/24", "10.15.176.0/24", "10.15.177.0/24"]
+WEB_PORTS_PUB    = [80, 8080, 8081, 443, 8443]
 DEV_Xapp_SET     = 2
 STG_Xapp_SET     = 4
 TST_Xapp_SET     = 4

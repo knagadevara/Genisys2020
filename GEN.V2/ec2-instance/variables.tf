@@ -80,6 +80,7 @@ variable "IAM_UserFilePath" {
 variable "IAM_ALtUsrPath" {
   type = string
 }
-# variable "UserMap" {
-#   type = map(object({ users = list(string) }))
-#   }
+
+variable "WEB_PORTS_PUB" {
+  type = list(number)
+}
