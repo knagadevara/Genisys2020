@@ -2,11 +2,6 @@
 ## If no result is returned then there will be an error
 data "aws_ami" "get_image" {
   most_recent = true
-# apparently Source is not found
-  # filter {
-  #   name   = "Source"
-  #   values = ["099720109477/ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-2021*"]
-  # }
 
   filter {
     name   = "name"

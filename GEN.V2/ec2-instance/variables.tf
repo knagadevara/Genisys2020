@@ -1,11 +1,3 @@
-####
-# Variable usage from command-line
-#$ terraform <> -var="variable_name=variable_value"
-# or
-#$ terraform <> -var-file="/path/to/var/file.tfvars"
-# or
-#$ export TF_VAR_<variable_name> <variable_value>
-####
 
 variable "AWS_VIRT_TYP" {
   type = string
@@ -78,18 +70,12 @@ variable "IAM_ALtUsrPath" {
   type = string
 }
 
-# variable "WEB_PORTS_PUB" {
-#   type = list(number)
-# }
-# variable "WEB_APP_SUBNETS" {
-#   type = list(string)
-# }
 variable "WEB_PORTS_PUBLIC_MAP" {
   type = map(object({
-      from_port   = number,
-      to_port     = number,
-      protocol    = string,
-      cidr_blocks = list(string),
-      description = string
+    from_port   = number,
+    to_port     = number,
+    protocol    = string,
+    cidr_blocks = list(string),
+    description = string
   }))
 }
