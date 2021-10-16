@@ -86,9 +86,10 @@ variable "IAM_ALtUsrPath" {
 # }
 variable "WEB_PORTS_PUBLIC_MAP" {
   type = map(object({
-    protocol    = string,
-    port        = number,
-    source      = list(string),
-    description = string
+      from_port   = number,
+      to_port     = number,
+      protocol    = string,
+      cidr_blocks = list(string),
+      description = string
   }))
 }

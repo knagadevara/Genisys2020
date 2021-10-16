@@ -18,36 +18,41 @@ IAM_ALtUsrPath   = "SAdminUsers.csv"
 WEB_PORTS_PUBLIC_MAP = {
   "WEB_N" = {
     protocol    = "tcp",
-    port        = 80,
-    source      = ["0.0.0.0/0"],
+    from_port        = 80,
+    to_port = 80,
+      cidr_blocks = ["0.0.0.0/0"],
     description = "Public access to Website forward to HTTPS"
   },
 
   "WEB_H" = {
     protocol    = "tcp",
-    port        = 443,
-    source      = ["0.0.0.0/0"],
+    from_port        = 443,
+    to_port = 443,
+      cidr_blocks = ["0.0.0.0/0"],
     description = "Public access to Website Secured"
   },
 
   "SSH" = {
     protocol    = "tcp",
-    port        = 22,
-    source      = ["10.15.175.0/24", "10.15.176.0/24", "10.15.177.0/24"],
+    from_port        = 22,
+    to_port = 22,
+      cidr_blocks = ["10.15.175.0/24", "10.15.176.0/24", "10.15.177.0/24"],
     description = "SSH ACCESS"
   },
 
   "DB_ORA" = {
     protocol    = "tcp",
-    port        = 8080,
-    source      = ["10.15.176.35/32"],
+    from_port        = 8080,
+    to_port = 8081,
+      cidr_blocks= ["10.15.176.35/32"],
     description = "DB Connectivity"
   },
 
   "REDIS_CACHE" = {
     protocol    = "tcp",
-    port        = 23241,
-    source      = ["10.15.177.100/32"],
+    from_port        = 23142,
+    to_port = 23143,
+      cidr_blocks =  ["10.15.177.100/32"],
     description = "Redis DB Connectivity"
   }
 }
