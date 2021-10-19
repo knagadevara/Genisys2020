@@ -1,12 +1,12 @@
 
 module "Xapp-VPC" {
   source = "../../modules/vpc"
-  VPC_FABRIC      = "10.15.0.0/16"
-  VPC_OPEN_CIDR   = "0.0.0.0/0"
-  VPC_WEB_SUBNETS = "10.15.175.0/24"
-  VPC_DB_SUBNETS  = "10.15.176.0/24"
+  VPC_FABRIC      = terraform.workspace=="DEV" ? "10.15.0.0/16" : ""
+  VPC_OPEN_CIDR   = terraform.workspace=="DEV" ? "0.0.0.0/0" : ""
+  VPC_WEB_SUBNETS = terraform.workspace=="DEV" ? "10.15.175.0/24" : ""
+  VPC_DB_SUBNETS  = terraform.workspace=="DEV" ? "10.15.176.0/24" : ""
 
-NACL_EGRESS_ROUTE_RULES = {
+NACL_EGRESS_ROUTE_RULES = terraform.workspace=="DEV" ? {
   "vdc2_vpc_nacl_rule_egress_default" = {
     rule_no     = 210
     action      = "allow"
@@ -23,9 +23,9 @@ NACL_EGRESS_ROUTE_RULES = {
     protocol    = "tcp"
     cidr_blocks = "10.15.0.0/16"
   }
-}
+} : {}
 
-NACL_INRESS_ROUTE_RULES = {
+NACL_INRESS_ROUTE_RULES = terraform.workspace=="DEV" ? {
   "vdc2_vpc_nacl_rule_ingress_default" = {
     rule_no     = 210
     action      = "allow"
@@ -50,9 +50,9 @@ NACL_INRESS_ROUTE_RULES = {
     protocol    = "tcp"
     cidr_blocks = "0.0.0.0/0"
   }
-}  
-}
+} : {}
 
+}
 # module "Xapp-IAM" {
 #   source = "../../modules/iam"
 #   IAM_UserFilePath = "../../files/SAdminUsers.csv"
@@ -62,7 +62,7 @@ NACL_INRESS_ROUTE_RULES = {
 
 module "Xapp-SG" {
   source = "../../modules/secgrp"
-WEB_PORTS_PUBLIC_MAP_INGRESS = {
+WEB_PORTS_PUBLIC_MAP_INGRESS = terraform.workspace=="DEV" ? {
   "WEB_N" = {
     protocol    = "tcp",
     from_port   = 80,
@@ -102,9 +102,9 @@ WEB_PORTS_PUBLIC_MAP_INGRESS = {
     cidr_blocks = ["10.15.176.100/32"],
     description = "Redis DB Connectivity"
   }
-}
+} : {}
 
-WEB_PORTS_PUBLIC_MAP_EGRESS = {
+WEB_PORTS_PUBLIC_MAP_EGRESS = terraform.workspace=="DEV" ? {
   "WEB_N" = {
     protocol    = "tcp",
     from_port   = 0,
@@ -119,7 +119,7 @@ WEB_PORTS_PUBLIC_MAP_EGRESS = {
     to_port     = 65535,
     cidr_blocks = ["10.15.175.0/24", "10.15.176.0/24"],
     description = "All ports Outbound Access only to internal subnet to restrict cross scripting"
-  }}  
+  }}  : {}
 }
 
 
