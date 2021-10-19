@@ -21,6 +21,7 @@ locals {
   tags = {
     "ApplicationName" = "Xandora"
     "ServerType"      = "Linux ${data.aws_ami.get_image.id}"
+    "EMV"             = "${terraform.workspace}"
   }
 }
 

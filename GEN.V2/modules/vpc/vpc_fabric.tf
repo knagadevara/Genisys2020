@@ -5,6 +5,7 @@ locals {
     "VDC"              = "2"
     "TerraformManaged" = true
     "Application"      = "Xandora"
+    "EMV"              = "${terraform.workspace}"
   }
 }
 
