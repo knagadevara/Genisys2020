@@ -1,6 +1,7 @@
 
 locals {
-  IAM_USERS = fileexists(var.IAM_UserFilePath) ? file(var.IAM_UserFilePath) : file(var.IAM_ALtUsrPath)
+  # IAM_USERS = fileexists(var.IAM_UserFilePath) ? file(var.IAM_UserFilePath) : file(var.IAM_ALt_ADMN)
+  IAM_USERS = file(var.IAM_UserFilePath)
   ## The resultants in the condition should be of the same type else an inconsistancy error will be thrown.
   ListOfUsers = csvdecode(local.IAM_USERS)
 }
