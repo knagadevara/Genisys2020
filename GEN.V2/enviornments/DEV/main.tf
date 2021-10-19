@@ -53,11 +53,11 @@ NACL_INRESS_ROUTE_RULES = {
 }  
 }
 
-module "Xapp-IAM" {
-  source = "../../modules/iam"
-  IAM_UserFilePath = "../../files/SAdminUsers.csv"
-  ## For some odd fucking reason this is not working instead a full path is working.
-}
+# module "Xapp-IAM" {
+#   source = "../../modules/iam"
+#   IAM_UserFilePath = "../../files/SAdminUsers.csv"
+#   ## For some odd fucking reason this is not working instead a full path is working.
+# }
 
 
 module "Xapp-SG" {
@@ -129,7 +129,20 @@ module "Xapp-S3" {
 
 module "Xapp-EC2-WEBServer" {
   source = "../../modules/ec2"
-  Xapp_SHAPE = "t3.small"
-  Xapp_SET = "2"
   AWS_VIRT_TYP     = "hvm"
+  Xapp_SET = terraform.workspace=="DEV" ? lookup(var.xaap_enviornmant, terraform.workspace).Xapp_SET : 0 
+  Xapp_SHAPE = terraform.workspace=="DEV" ? lookup(var.xaap_enviornmant, terraform.workspace).Xapp_SHAPE : "t3.micro"
+}
+
+variable "xaap_enviornmant" {
+  type = map(object({
+    Xapp_SHAPE = string
+    Xapp_SET   = number
+  }))
+default = {
+    "DEV" = {
+      Xapp_SET = 2
+      Xapp_SHAPE = "t3.micro"
+    }
+}
 }

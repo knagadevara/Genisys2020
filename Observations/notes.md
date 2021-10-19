@@ -4,6 +4,7 @@ terraform
 - taint <"resource name">
 - refresh
 - output <"output variable  name">
+- workspace -h
 
         # apparently Source is not found
         # filter {

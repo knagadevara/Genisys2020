@@ -7,6 +7,8 @@
 #   }
 # }
 
+
+
 variable "AMI_ID" {
   type = string
   validation {
@@ -15,9 +17,14 @@ variable "AMI_ID" {
   }
 }
 
+
+
 variable "AZ_US_EST1" {
   type = string
 }
+
+
 variable "AZ_US_EST2" {
   type = string
 }
+
