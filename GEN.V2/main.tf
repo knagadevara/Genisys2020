@@ -1,13 +1,13 @@
 ## This file shall contain only one env pointer at any given time!
 
-module "XAAP-WEB-DEPLOY-DEV" {
-  source = "./enviornments/DEV"
-}
+#module "XAAP-WEB-DEPLOY-DEV" {
+#  source = "./enviornments/DEV"
+#}
 
 
-# module "XAAP-WEB-DEPLOY-PRD" {
-#   source = "./enviornments/PRD"
-# }
+ module "XAAP-WEB-DEPLOY-PRD" {
+   source = "./enviornments/PRD"
+ }
 
 
 # module "XAAP-WEB-DEPLOY-STG" {
