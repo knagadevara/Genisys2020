@@ -9,15 +9,6 @@
 
 
 
-variable "AMI_ID" {
-  type = string
-  validation {
-    condition     = length(var.AMI_ID) > 4 && substr(var.AMI_ID, 0, 4) == "ami-"
-    error_message = "Amazon AMI id should start with ami-."
-  }
-}
-
-
 
 variable "AZ_US_EST1" {
   type = string
