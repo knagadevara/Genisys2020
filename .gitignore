@@ -2,15 +2,17 @@
 **/.terraform/*
 
 # .tfstate files
-*.tfstate
 *.tfstate.*
+*.tfstate
+terraform.tfstate
 terraform.tfstate.backup
 *state*
 *.lock.hcl
 # Crash log files
 crash.log
 *.bin
-
+*.deploy*
+*.key
 # Ignore any .tfvars files that are generated automatically for each Terraform run. Most
 # .tfvars files are managed as part of configuration and so should be included in
 # version control.
