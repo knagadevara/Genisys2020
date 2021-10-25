@@ -53,11 +53,12 @@ module "Xapp-VPC" {
   } : {}
 
 }
-# module "Xapp-IAM" {
-#   source = "../../modules/iam"
-#   IAM_UserFilePath = "../../files/SAdminUsers.csv"
-#   ## For some odd fucking reason this is not working instead a full path is working.
-# }
+
+module "Xapp-IAM" {
+  source = "../../modules/iam"
+  IAM_UserFilePath = "/home/knagadevara/git/Genisys2020/GEN.V2/files/SAdminUsers.csv"
+  ## For some odd fucking reason relative-path-pointing is not working instead a full path is working.
+}
 
 
 module "Xapp-SG" {
